@@ -34,7 +34,7 @@ class KercodeWarTest extends TestCase
 
   public function testWithInvalidWeekdayValue()
   {
-    $this->assertEquals('Wrong, please enter a number between 1 and 7', KercodeWar::weekday('plop'));
+    $this->assertEquals('Wrng, please enter a number between 1 and 7', KercodeWar::weekday('plop'));
   }
 
   public function testFrenchWithValidWeekdayValue()
