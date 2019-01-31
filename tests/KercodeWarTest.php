@@ -15,6 +15,16 @@ class KercodeWarTest extends TestCase
     7 => 'Saturday'
   ];
 
+  CONST FRENCH_WEEKDAYS = [
+    1 => 'Dimanche',
+    2 => 'Lundi',
+    3 => 'Mardi',
+    4 => 'Mercredi',
+    5 => 'Jeudi',
+    6 => 'Vendredi',
+    7 => 'Samedi'
+  ];
+
   public function testWithValidWeekdayValue()
   {
     foreach (self::WEEKDAYS as $key => $value) {
@@ -27,7 +37,19 @@ class KercodeWarTest extends TestCase
     $this->assertEquals('Wrong, please enter a number between 1 and 7', KercodeWar::weekday('plop'));
   }
 
-  public function testNumberInWeekend()
+  public function testFrenchWithValidWeekdayValue()
+  {
+    foreach (self::FRENCH_WEEKDAYS as $key => $value) {
+      $this->assertEquals($value, KercodeWar::weekday($key, 'fr'));
+    }
+  }
+
+  public function testFrenchWithInvalidWeekdayValue()
+  {
+    $this->assertEquals('Oups... Vous devez entrer un nombre compris entre 1 et 7', KercodeWar::weekday('plop', 'fr'));
+  }
+
+  public function testNumberIsWeekend()
   {
     foreach (self::WEEKDAYS as $key => $value) {
       $bool = ($value === 'Saturday' || $value === 'Sunday');
