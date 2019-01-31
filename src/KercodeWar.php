@@ -29,4 +29,8 @@ class KercodeWar {
       return 'Wrong, please enter a number between 1 and 7';
     }
   }
+
+  public function isWeekend($number) {
+    return ('Sunday' === self::weekday($number)) || ('Saturday' === self::weekday($number)) ? true : false;
+  }
 }

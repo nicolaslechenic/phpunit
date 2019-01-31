@@ -20,4 +20,16 @@ class KercodeWarTest extends TestCase
   {
     $this->assertEquals('Wrong, please enter a number between 1 and 7', KercodeWar::weekday('plop'));
   }
+
+  public function testNumberInWeekend()
+  {
+    $this->assertEquals(true, KercodeWar::isWeekend(1));
+    $this->assertEquals(false, KercodeWar::isWeekend(2));
+    $this->assertEquals(false, KercodeWar::isWeekend(3));
+    $this->assertEquals(false, KercodeWar::isWeekend(4));
+    $this->assertEquals(false, KercodeWar::isWeekend(5));
+    $this->assertEquals(false, KercodeWar::isWeekend(6));
+    $this->assertEquals(true, KercodeWar::isWeekend(7));
+  }
+
 }
