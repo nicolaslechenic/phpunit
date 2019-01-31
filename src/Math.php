@@ -1,5 +1,6 @@
 <?php
 
+namespace Kercode;
 class Math
 {
   public static function double($number) {
