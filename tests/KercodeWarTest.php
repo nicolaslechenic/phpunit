@@ -5,15 +5,21 @@ use PHPUnit\Framework\TestCase;
 
 class KercodeWarTest extends TestCase
 {
+  CONST WEEKDAYS = [
+    1 => 'Sunday',
+    2 => 'Monday',
+    3 => 'Tuesday',
+    4 => 'Wednesday',
+    5 => 'Thursday',
+    6 => 'Friday',
+    7 => 'Saturday'
+  ];
+
   public function testWithValidWeekdayValue()
   {
-    $this->assertEquals('Sunday', KercodeWar::weekday(1));
-    $this->assertEquals('Monday', KercodeWar::weekday(2));
-    $this->assertEquals('Tuesday', KercodeWar::weekday(3));
-    $this->assertEquals('Wednesday', KercodeWar::weekday(4));
-    $this->assertEquals('Thursday', KercodeWar::weekday(5));
-    $this->assertEquals('Friday', KercodeWar::weekday(6));
-    $this->assertEquals('Saturday', KercodeWar::weekday(7));
+    foreach (self::WEEKDAYS as $key => $value) {
+      $this->assertEquals($value, KercodeWar::weekday($key));
+    }
   }
 
   public function testWithInvalidWeekdayValue()
@@ -23,13 +29,9 @@ class KercodeWarTest extends TestCase
 
   public function testNumberInWeekend()
   {
-    $this->assertEquals(true, KercodeWar::isWeekend(1));
-    $this->assertEquals(false, KercodeWar::isWeekend(2));
-    $this->assertEquals(false, KercodeWar::isWeekend(3));
-    $this->assertEquals(false, KercodeWar::isWeekend(4));
-    $this->assertEquals(false, KercodeWar::isWeekend(5));
-    $this->assertEquals(false, KercodeWar::isWeekend(6));
-    $this->assertEquals(true, KercodeWar::isWeekend(7));
+    foreach (self::WEEKDAYS as $key => $value) {
+      $bool = ($value === 'Saturday' || $value === 'Sunday');
+      $this->assertEquals($bool, KercodeWar::isWeekend($key));
+    }
   }
-
 }
