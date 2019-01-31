@@ -1,5 +1,5 @@
 <?php
-use \Symfony\Componant\Yaml\Yaml;
+use Symfony\Component\Yaml\Yaml;
 
 class KercodeWar {
   public function weekday($number, $lang='en') {
