@@ -1,0 +1,10 @@
+{
+    "name": "kercode/phpunit",
+    "authors": [
+        {
+            "name": "Nicolas Le Chenic",
+            "email": "nicolaslechenic@gmail.com"
+        }
+    ],
+    "require": {}
+}
