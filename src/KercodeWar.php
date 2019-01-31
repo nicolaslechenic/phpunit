@@ -5,7 +5,11 @@ class KercodeWar {
   public function weekday($number, $lang='en') {
     $content = Yaml::parse(file_get_contents("{$lang}.yml"));
 
-    eval(\Psy\sh());
+    if (($number >= 1) && ($number <= 7)) {
+      return $content['weekdays']['days'][$number - 1];
+    } else {
+      return $content['weekdays']['error'];
+    }
   }
 
   public function isWeekend($number) {
